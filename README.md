@@ -16,4 +16,14 @@ The following techniques have been used:
  - All the above said modelling techniques are tried and evaluated. The final metric used to evaluate is mean squared error.
 
 ## To excute the script
-python < scriptname.py >
+python < scriptname.py 
+
+
+## Create a SSH key 
+## Create a new repo mle-training
+## Create github issue and note the issue-id
+## Create github branch enh/1-assignment-2
+ Edit the necessary code changes in the code snippet
+## Create mle-dev environment 
+  export env.yml file into it
+
