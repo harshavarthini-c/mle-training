@@ -1,19 +1,15 @@
-# mle-training
-# Median housing value prediction
+Ensured you have SSH access to Tiger GitHub.
 
-The housing data can be downloaded from https://raw.githubusercontent.com/ageron/handson-ml/master/. The script has codes to download the data. We have modelled the median house value on given housing data. 
+Created a private repository named mle-training with an empty README.
 
-The following techniques have been used: 
+Created a GitHub issue for the current assignment and add in the details based on what is requested in this assignment and assign it to yourself. Note the issue-id. 
 
- - Linear regression
- - Decision Tree
- - Random Forest
+Created a new branch (enh/<issue-id>/<short-msg>) and copy the code-snippet here and commit as-is including the README. Use appropriate commit messages as per the guidelines.
 
-## Steps performed
- - We prepare and clean the data. We check and impute for missing values.
- - Features are generated and the variables are checked for correlation.
- - Multiple sampling techinuqies are evaluated. The data set is split into train and test.
- - All the above said modelling techniques are tried and evaluated. The final metric used to evaluate is mean squared error.
+Added a .gitignore file to the repository to avoid committing unnecessary files like pyc files and the CSV data files in your current folder.  
 
-## To excute the script
-python < scriptname.py >
+Used Conda to set up a python development environment named mle-dev to run the script. Exported the environments file as env.yml and commit it to the repository.
+
+Updated the README file with instructions on how to run the code.
+
+Created a Pull Request.
