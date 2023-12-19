@@ -1,20 +1,21 @@
 import os
 import tarfile
+import urllib
 
 import numpy as np
 import pandas as pd
-import urllib
-from sklearn.model_selection import train_test_split
-from sklearn.model_selection import StratifiedShuffleSplit
-from sklearn.impute import SimpleImputer
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error
-from sklearn.metrics import mean_absolute_error
-from sklearn.tree import DecisionTreeRegressor
 from scipy.stats import randint
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import RandomizedSearchCV
-from sklearn.model_selection import GridSearchCV
+from sklearn.impute import SimpleImputer
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_absolute_error, mean_squared_error
+from sklearn.model_selection import (
+    GridSearchCV,
+    RandomizedSearchCV,
+    StratifiedShuffleSplit,
+    train_test_split,
+)
+from sklearn.tree import DecisionTreeRegressor
 
 DOWNLOAD_ROOT = "https://raw.githubusercontent.com/ageron/handson-ml/master/"
 HOUSING_PATH = os.path.join("datasets", "housing")
@@ -35,7 +36,8 @@ def load_housing_data(housing_path=HOUSING_PATH):
     return pd.read_csv(csv_path)
 
 
-housing = load_housing_data
+fetch_housing_data()
+housing = load_housing_data()
 
 
 train_set, test_set = train_test_split(
@@ -84,7 +86,7 @@ housing = strat_train_set.copy()
 housing.plot(kind="scatter", x="longitude", y="latitude")
 housing.plot(kind="scatter", x="longitude", y="latitude", alpha=0.1)
 
-corr_matrix = housing.corr()
+corr_matrix = housing.corr(numeric_only=True)
 corr_matrix["median_house_value"].sort_values(ascending=False)
 housing["rooms_per_household"] = (
     housing["total_rooms"] / housing["households"]
