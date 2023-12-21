@@ -1,0 +1,24 @@
+{
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.formatting.provider": "black",
+    "python.sortImports.args": [
+        "--profile",
+        "black"
+    ],
+    "python.formatting.blackArgs": [
+        "--line-length=88"
+    ],
+    "python.linting.flake8Args": [
+        "--max-line-length=88",
+    ],
+    "editor.tabSize": 4,
+    "files.trimTrailingWhitespace": true,
+    "python.defaultInterpreterPath": "/home/harshavarthini/miniconda3/envs/mle-dev/bin/python3",
+    "editor.formatOnSave": true,
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    }
+}
