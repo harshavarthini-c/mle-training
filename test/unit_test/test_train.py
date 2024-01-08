@@ -18,7 +18,9 @@ class TestTrain(unittest.TestCase):
     def test_save_model(self):
         models = train.model_names
         for i in models:
-            self.assertFalse(os.path.isdir(f"{rootpath}{args.outputpath}/{i}"))
+            self.assertFalse(
+                os.path.isdir(f"{rootpath}{args.outputpath}/{i}")
+            )
 
 
 if __name__ == "__main__":

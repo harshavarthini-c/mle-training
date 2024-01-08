@@ -7,7 +7,7 @@ class TestInstallation(unittest.TestCase):
     def test_package_import_after_installation(self):
         # Run the installation command as a subprocess
         result = subprocess.run(
-            ["pip", "install", "housing_data"], capture_output=True, text=True
+            ["pip", "install", "housing"], capture_output=True, text=True
         )
 
         # Check if the installation process was successful (return code 0)
