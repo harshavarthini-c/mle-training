@@ -15,7 +15,7 @@ path = get_path()
 
 
 def test_ingest():
-    datapath = "dataset/raw/housing"
+    datapath = "data/raw/housing"
     os.system(f"python src/housing/ingest_data.py --datapath {datapath}")
     print(f"{path}{datapath}/housing.csv")
     assert os.path.isfile(f"{path}{datapath}/housing.csv")
@@ -26,7 +26,12 @@ def test_ingest():
 def test_train():
     models = "artifacts"
     dataset = "data/processed"
-    model_names = ["lin_model", "tree_model", "forest_model", "grid_search_model"]
+    model_names = [
+        "lin_model",
+        "tree_model",
+        "forest_model",
+        "grid_search_model",
+    ]
     os.system(
         f"python src/housing/train.py --inputpath {dataset} --outputpath {models}"
     )
