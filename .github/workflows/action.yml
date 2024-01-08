@@ -7,7 +7,7 @@ on:
   push:
     branches: [ "enh/#8/python_packaging_1" ]
   pull_request:
-    branches: [ "enh/#8/python_packaging_1" ]
+    branches: [ "main" ]
 
 permissions:
   contents: read
