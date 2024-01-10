@@ -1,29 +1,31 @@
-# mle-training
-# Median housing value prediction
+# Configuration
 
-The housing data can be downloaded from https://raw.githubusercontent.com/ageron/handson-ml/master/. The script has codes to download the data. We have modelled the median house value on given housing data. 
+    pyproject.toml is used for the configuration. Do python packaging.
+# Refactored the code
 
-The following techniques have been used: 
+    The code in nonstandardcode.py is split into four different files and stored in separate folder named as src/housing/
+        1. run_script.py
+        2. ingest_data.py
+        3. train.py
+        4. score.py
+    By running this run_script.py, all other files will run. all function calls, argsparse are called and implemented respectively.
+# Test function for the refactored code
 
- - Linear regression
- - Decision Tree
- - Random Forest
+    To test the entire code and installation, test files are written and stored at test/functional_test/, test/unit_test/, test/ folders.
+        1. functional_test
+            functional_test.py
+        2. unit_test
+            test_ingest_data.py
+            test_run_script.py
+            test_score.py
+            test_train.py
+        3. test_installation.py
+        4. test_unitinstallation.py
+# Docstring
 
-## Steps performed
- - We prepare and clean the data. We check and impute for missing values.
- - Features are generated and the variables are checked for correlation.
- - Multiple sampling techinuqies are evaluated. The data set is split into train and test.
- - All the above said modelling techniques are tried and evaluated. The final metric used to evaluate is mean squared error.
+    Add docstring for each python file on src/housing/
+    use sphinx for the documentation.
+
 
 ## To excute the script
-python < scriptname.py 
-
-
-## Create a SSH key 
-## Create a new repo mle-training
-## Create github issue and note the issue-id
-## Create github branch enh/1-assignment-2
- Edit the necessary code changes in the code snippet
-## Create mle-dev environment 
-  export env.yml file into it
-
+python run_script.py
