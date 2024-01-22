@@ -2,8 +2,7 @@
 *.csv
 *.tgz
 build/**
-*.egg-info/**
-mlruns/**
+src/housing.egg-info/**
 .flake8
 .vscode/**
 *model/
