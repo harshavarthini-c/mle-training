@@ -6,7 +6,7 @@ src/housing.egg-info/**
 .flake8
 .vscode/**
 *model/
-*.log
+*.log/**
 artifacts/models/**
 docs/build/**
 dist/**
