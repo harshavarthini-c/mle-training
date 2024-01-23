@@ -83,8 +83,3 @@ The importance of each feature is displayed, allowing for insights into the mode
 9. Model Evaluation on Test Set:
 The final model (best-performing Random Forest) is evaluated on a separate test set to estimate its generalization performance.
 Mean Squared Error and Root Mean Squared Error are calculated.
-
-10. Deployment and Monitoring:
-The final model is deployed to a production environment.
-A monitoring system is recommended to regularly check the model's live performance and trigger alerts if needed.
-Automation is suggested for tasks such as collecting fresh data, retraining the model, and evaluating model performance.
