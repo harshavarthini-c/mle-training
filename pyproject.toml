@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "housing"
-version = "1.0.0"
+version = "0.0.0"
 authors = [
-    {name = "Surya Sekar", email = "surya.sekar@tigeranalytics.com"}
+    {name = "Harshavarthini C", email = "harshavarthini.c@tigeranalytics.com"}
 ]
-description = "Surya_training"
+description = "mle-training"
 readme = "README.md"
 requires-python = ">=3.9"
 
