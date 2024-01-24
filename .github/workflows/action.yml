@@ -6,7 +6,7 @@ name: Python application
 on:
   push:
     branches:
-      - '*'  # This means all branches
+      [enh/#12/mflow_task]  # This means all branches
   pull_request:
     types: [opened, synchronize, reopened]
 
