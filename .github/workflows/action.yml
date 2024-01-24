@@ -28,8 +28,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install build
         python -m build
-        pip install flake8 pytest numpy pandas scikit-learn matplotlib
-        pip install dist/housing-0.0.1-py3-none-any.whl
+        pip install -r requirements.txt
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names

@@ -1,14 +1,15 @@
 [tool.black]
-line-length = 78
+line-length = 79
 
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "housing"
-version = "0.0.1"
+description = "To standardize our code for production."
 dependencies = [
     "requests",
-    'importlib-metadata; python_version<"3.8"',
+    'importlib-metadata; python_version<"3.8"'
 ]
+readme = "README.md"
