@@ -13,9 +13,6 @@ from housing import train as trains
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 
-# ingest_data.py
-
-
 # we add argparse here. The option '--datapath' will accept path as an argument from the user, which will be used to store the training and validation datasets.
 # The script that accepts the output folder/file path as a user argument.
 def parse_args():
@@ -55,9 +52,7 @@ def parse_args():
     parser.add_argument(
         "--log-path", type=str, default=data.get_path() + "logs/logs.log"
     )
-    parser.add_argument(
-        "--experiment-name", type=str, default="housing_experiment"
-    )
+    parser.add_argument("--experiment-name", type=str, default="housing_experiment")
     return parser.parse_args()
 
 
@@ -107,12 +102,8 @@ if __name__ == "__main__":
             if not os.path.exists(processed):
                 os.makedirs(processed)
             data.save_preprocessed(train_X, train_y, test_X, test_y, processed)
-            logger.debug(
-                f"Preprocessed train and test datasets stored at {processed}."
-            )
-            mlflow.log_artifact(
-                processed
-            )  # Log the preprocessed data as an artifact
+            logger.debug(f"Preprocessed train and test datasets stored at {processed}.")
+            mlflow.log_artifact(processed)  # Log the preprocessed data as an artifact
 
         # Child run 2: model training
         with mlflow.start_run(nested=True, run_name="Model training flow"):
@@ -127,9 +118,7 @@ if __name__ == "__main__":
             trains.rem_artifacts(out_path)
             prepared, labels = trains.load_data(in_path)
             logger.debug("Loaded training data")
-            lin_reg, tree_reg, forest_reg, grid_search = trains.train(
-                prepared, labels
-            )
+            lin_reg, tree_reg, forest_reg, grid_search = trains.train(prepared, labels)
             logger.debug("Training completed")
             if not os.path.exists(out_path):
                 os.makedirs(out_path)
@@ -138,9 +127,7 @@ if __name__ == "__main__":
             mlflow.log_param("tree reg", tree_reg)
             mlflow.log_param("forest reg", forest_reg)
             mlflow.log_param("grid_search", grid_search)
-            mlflow.log_artifact(
-                out_path
-            )  # Log the trained models as an artifact
+            mlflow.log_artifact(out_path)  # Log the trained models as an artifact
 
         # Child run 3: scoring
         with mlflow.start_run(nested=True, run_name="Scoring flow"):
@@ -155,13 +142,7 @@ if __name__ == "__main__":
             scores = scoreses.score(models, X_test, y_test)
             for i in range(len(models)):
                 logger.debug(f"{scoreses.model_names[i]}={scores[i]}")
-                mlflow.log_metric(
-                    f"{scoreses.model_names[i]}_MAE", scores[i][0]
-                )
-                mlflow.log_metric(
-                    f"{scoreses.model_names[i]}_MSE", scores[i][1]
-                )
-                mlflow.log_metric(
-                    f"{scoreses.model_names[i]}_RMSE", scores[i][2]
-                )
+                mlflow.log_metric(f"{scoreses.model_names[i]}_MAE", scores[i][0])
+                mlflow.log_metric(f"{scoreses.model_names[i]}_MSE", scores[i][1])
+                mlflow.log_metric(f"{scoreses.model_names[i]}_RMSE", scores[i][2])
     logger.debug("🚩🚩  Execution Completed !! ✔️✔️")
