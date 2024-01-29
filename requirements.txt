@@ -1,0 +1,21 @@
+# requirements.txt
+
+# # Upgrade pip
+# --upgrade pip
+
+# Build tools
+
+
+# Testing and development dependencies
+flake8
+pytest
+numpy
+pandas
+scikit-learn
+matplotlib
+
+# Install the built package
+./dist/housing-0.0.0-py3-none-any.whl
+
+# MLflow
+mlflow
