@@ -2,7 +2,7 @@ FROM python:3.9
 
 WORKDIR /mle-training
 
-RUN apt-get update && apt-get install -y git
+RUN apt-get update
 
 COPY . .
 
